@@ -1,7 +1,5 @@
 package de.feli490.feliutils.items;
 
-import java.util.UUID;
-
 import org.bukkit.inventory.ItemStack;
 
 public enum DefaultSkulls {
@@ -16,7 +14,7 @@ public enum DefaultSkulls {
     private ItemStack head;
 
     DefaultSkulls(String ownerUUIDString, String ownerName, String texturesProperty) {
-        head = SkullItemUtils.createHead(UUID.fromString(ownerUUIDString), ownerName, texturesProperty);
+        head = SkullItemUtils.createHead(ownerUUIDString, ownerName, texturesProperty);
     }
 
     public ItemStack getItemStack() {

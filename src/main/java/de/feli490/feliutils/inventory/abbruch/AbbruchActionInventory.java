@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import de.feli490.feliutils.inventory.ActionInventory;
-import de.feli490.feliutils.items.SkullItemUtils;
+import de.feli490.feliutils.items.DefaultSkulls;
 
 public class AbbruchActionInventory {
 
@@ -24,7 +24,7 @@ public class AbbruchActionInventory {
         ActionInventory abbruchActionInventory = ActionInventory.createActionInventory(false, 9, "Wirklich Abbrechen?");
         Inventory inventory = abbruchActionInventory.getInventory();
 
-        ItemStack bestaetigenItemStack = SkullItemUtils.GREEN_CHECKMARK.getItemStack();
+        ItemStack bestaetigenItemStack = DefaultSkulls.GREEN_CHECKMARK.getItemStack();
         ItemMeta bestaetigenItemMeta = bestaetigenItemStack.getItemMeta();
         bestaetigenItemMeta.setDisplayName(MessageFormat.format("{0}Ja", ChatColor.GREEN));
         bestaetigenItemStack.setItemMeta(bestaetigenItemMeta);
@@ -32,7 +32,7 @@ public class AbbruchActionInventory {
         inventory.setItem(1, bestaetigenItemStack);
         abbruchActionInventory.setClickEvent(1, clickEvent -> clickEvent.getWhoClicked().closeInventory());
 
-        ItemStack abbrechenItemStack = SkullItemUtils.RED_CROSS.getItemStack();
+        ItemStack abbrechenItemStack = DefaultSkulls.RED_CROSS.getItemStack();
         ItemMeta abbrechenItemMeta = abbrechenItemStack.getItemMeta();
         abbrechenItemMeta.setDisplayName(MessageFormat.format("{0}Nein", ChatColor.RED));
         abbrechenItemStack.setItemMeta(abbrechenItemMeta);
