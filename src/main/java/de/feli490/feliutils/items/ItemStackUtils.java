@@ -1,4 +1,4 @@
-package de.feli490.feliutils;
+package de.feli490.feliutils.items;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;

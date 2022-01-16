@@ -11,8 +11,8 @@ import com.destroystokyo.paper.profile.ProfileProperty;
 
 import de.iani.playerUUIDCache.CachedPlayerProfile;
 
-public class HeadUtils {
-    private HeadUtils() {
+public class PlayerProfileUtils {
+    private PlayerProfileUtils() {
         throw new Error("nope.");
     }
 

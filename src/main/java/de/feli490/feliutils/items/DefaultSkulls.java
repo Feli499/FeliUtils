@@ -1,12 +1,10 @@
-package de.feli490.feliutils;
+package de.feli490.feliutils.items;
 
 import java.util.UUID;
 
 import org.bukkit.inventory.ItemStack;
 
-import de.iani.cubesideutils.bukkit.items.CustomHeads;
-
-public enum DefaultSkullItemUtils {
+public enum DefaultSkulls {
 
     RED_CROSS("5ecfabf0-5253-47b0-a44d-9a0c924081b9", "RED_CROSS",
             "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmViNTg4YjIxYTZmOThhZDFmZjRlMDg1YzU1MmRjYjA1MGVmYzljYWI0MjdmNDYwNDhmMThmYzgwMzQ3NWY3In19fQ=="),
@@ -17,8 +15,8 @@ public enum DefaultSkullItemUtils {
 
     private ItemStack head;
 
-    DefaultSkullItemUtils(String ownerUUIDString, String ownerName, String texturesProperty) {
-        head = CustomHeads.createHead(UUID.fromString(ownerUUIDString), ownerName, texturesProperty);
+    DefaultSkulls(String ownerUUIDString, String ownerName, String texturesProperty) {
+        head = SkullItemUtils.createHead(UUID.fromString(ownerUUIDString), ownerName, texturesProperty);
     }
 
     public ItemStack getItemStack() {
