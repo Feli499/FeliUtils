@@ -38,4 +38,4 @@ Then you can just add the plugin as your dependency:
 Now you can just use every Util Method / Class of the Plugin.</br>
 To ensure complete functionality you should add this Plugin as (Soft-)Dependency in your <code>Plugin.yml</code>:
 
-    depend: [PlayerUUIDCache]
+    depend: [FeliUtils]
