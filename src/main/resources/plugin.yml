@@ -5,5 +5,6 @@ description: Utility Plugin for Plugins of Feli490
 website: feli490.de
 author: Feli
 main: de.feli490.feliutils.FeliUtilsPlugin
+softdepend: [ PlayerUUIDCache ]
 libraries:
   - org.json:json:${JSONVersion}
