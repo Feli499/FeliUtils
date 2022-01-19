@@ -79,11 +79,11 @@ public class ActionInventory implements InventoryHolder {
      * Nicht an Slots gebundene Click Events.
      * Werden VOR den SlotClick Events ausgeführt.
      */
-    public void registerCloseActions(ActionInventoryClickEvent actionInventoryClickEvent) {
+    public void registerClickActions(ActionInventoryClickEvent actionInventoryClickEvent) {
         generalClickActions.add(actionInventoryClickEvent);
     }
 
-    public void unregisterCloseActions(ActionInventoryClickEvent actionInventoryClickEvent) {
+    public void unregisterClickActions(ActionInventoryClickEvent actionInventoryClickEvent) {
         generalClickActions.add(actionInventoryClickEvent);
     }
 
