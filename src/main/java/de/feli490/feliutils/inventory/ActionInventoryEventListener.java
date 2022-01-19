@@ -4,6 +4,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -53,7 +54,7 @@ public class ActionInventoryEventListener implements Listener {
     }
 
     @EventHandler
-    public static void onInventoryClickEvent(InventoryCloseEvent e) {
+    public static void onInventoryCloseEvent(InventoryCloseEvent e) {
 
         Inventory closed = e.getInventory();
 
@@ -63,6 +64,19 @@ public class ActionInventoryEventListener implements Listener {
         }
 
         actionInventory.onInventoryClose(e);
+    }
+
+    @EventHandler
+    public static void onInventoryOpenEvent(InventoryOpenEvent e) {
+
+        Inventory closed = e.getInventory();
+
+        InventoryHolder holder = closed.getHolder();
+        if (!(holder instanceof ActionInventory actionInventory)) {
+            return;
+        }
+
+        actionInventory.onInventoryOpen(e);
     }
 
     public static void startListener(JavaPlugin javaPlugin) throws IllegalAccessException {

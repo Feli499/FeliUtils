@@ -8,6 +8,7 @@ import java.util.Set;
 import org.bukkit.Bukkit;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
@@ -17,6 +18,7 @@ public class ActionInventory implements InventoryHolder {
     private final Map<Integer, ActionInventoryClickEvent> clickActions = new HashMap<>();
     private final Map<Integer, ActionInventoryClickEvent> clickPlayerInventoryActions = new HashMap<>();
 
+    private final Set<ActionInventoryOpenEvent> openActions = new HashSet<>();
     private final Set<ActionInventoryCloseEvent> closeActions = new HashSet<>();
     private final Set<ActionInventoryClickEvent> generalClickActions = new HashSet<>();
 
@@ -67,6 +69,14 @@ public class ActionInventory implements InventoryHolder {
         return headcaseActionInventory;
     }
 
+    public void registerOpenActions(ActionInventoryOpenEvent actionInventoryOpenEvent) {
+        openActions.add(actionInventoryOpenEvent);
+    }
+
+    public void unregisterOpenActions(ActionInventoryOpenEvent actionInventoryOpenEvent) {
+        openActions.add(actionInventoryOpenEvent);
+    }
+
     public void registerCloseActions(ActionInventoryCloseEvent actionInventoryCloseEvent) {
         closeActions.add(actionInventoryCloseEvent);
     }
@@ -110,6 +120,13 @@ public class ActionInventory implements InventoryHolder {
         }
     }
 
+    public void onInventoryOpen(InventoryOpenEvent inventoryOpenEvent) {
+
+        for (ActionInventoryOpenEvent openAction : openActions) {
+            openAction.onAction(inventoryOpenEvent);
+        }
+    }
+
     public void onInventoryClick(InventoryClickEvent inventoryClickEvent) {
 
         int slot = inventoryClickEvent.getSlot();
@@ -142,4 +159,5 @@ public class ActionInventory implements InventoryHolder {
     private void setInv(Inventory inv) {
         this.inv = inv;
     }
+
 }
