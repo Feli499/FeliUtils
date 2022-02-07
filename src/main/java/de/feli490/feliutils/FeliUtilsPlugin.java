@@ -6,11 +6,14 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.feli490.feliutils.inventory.ActionInventoryEventListener;
+import de.feli490.feliutils.inventory.textinput.TextInputListener;
 
 public class FeliUtilsPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        this.getServer().getPluginManager().registerEvents(new TextInputListener(this), this);
 
         try {
             ActionInventoryEventListener.startListener(this);
