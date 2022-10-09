@@ -3,20 +3,30 @@ package de.feli490.feliutils.inventory.textinput.validator;
 public class NumberTextValidator implements TextValidator {
 
     private final String errorText;
-    private final boolean allowNegative;
+    private final int minValue;
+    private final int maxValue;
 
     public NumberTextValidator(String errorText) {
-        this(errorText, true);
+        this(errorText, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    public NumberTextValidator(String errorText, boolean allowNegative) {
-        this.allowNegative = allowNegative;
+    public NumberTextValidator(String errorText, int minValue, int maxValue) {
+        this.minValue = minValue;
+        this.maxValue = maxValue;
         this.errorText = errorText;
     }
 
     @Override
     public boolean validate(String text) {
-        return text.matches("%s[0-9]+".formatted(allowNegative ? "-?" : ""));
+
+        try {
+
+            int parsedValue = Integer.parseInt(text);
+            return parsedValue >= minValue && parsedValue <= maxValue;
+
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public String getErrorText() {

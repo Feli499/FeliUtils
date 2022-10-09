@@ -2,23 +2,31 @@ package de.feli490.feliutils.inventory.textinput.validator;
 
 public class DoubleTextValidator implements TextValidator {
 
-    private final int decimalPlace;
+    private final double minValue;
+    private final double maxValue;
     private final String errorText;
-    private final boolean allowNegative;
 
-    public DoubleTextValidator(int decimalPlace, String errorText) {
-        this(decimalPlace, errorText, true);
+    public DoubleTextValidator(String errorText) {
+        this(errorText, -Double.MAX_VALUE, Double.MAX_VALUE);
     }
 
-    public DoubleTextValidator(int decimalPlace, String errorText, boolean allowNegative) {
-        this.decimalPlace = decimalPlace;
+    public DoubleTextValidator(String errorText, double minValue, double maxValue) {
+        this.minValue = minValue;
+        this.maxValue = maxValue;
         this.errorText = errorText;
-        this.allowNegative = allowNegative;
     }
 
     @Override
     public boolean validate(String text) {
-        return text.matches("%s[0-9]*\\.?[0-9]{0,%d}".formatted(allowNegative ? "-?" : "", decimalPlace));
+
+        try {
+
+            double parsedValue = Double.parseDouble(text);
+            return parsedValue >= minValue && parsedValue <= maxValue;
+
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public String getErrorText() {

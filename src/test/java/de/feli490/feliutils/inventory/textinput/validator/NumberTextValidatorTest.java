@@ -6,7 +6,7 @@ import org.junit.Test;
 public class NumberTextValidatorTest {
 
     @Test
-    public void testNumberTextValidatorWithoutNegativeParameter() {
+    public void testNumberTextValidator() {
 
         /* Given */
         NumberTextValidator sut = new NumberTextValidator("ErrorText");
@@ -15,72 +15,35 @@ public class NumberTextValidatorTest {
         Assert.assertTrue(sut.validate("213"));
         Assert.assertTrue(sut.validate("-213"));
 
-        Assert.assertFalse(sut.validate("133.323"));
-        Assert.assertFalse(sut.validate("3.23"));
-        Assert.assertFalse(sut.validate("1423."));
-        Assert.assertFalse(sut.validate(".543"));
-        Assert.assertFalse(sut.validate("-133.323"));
-        Assert.assertFalse(sut.validate("-3.23"));
-        Assert.assertFalse(sut.validate("-1423."));
-        Assert.assertFalse(sut.validate("-.543"));
-
-        Assert.assertFalse(sut.validate("32.5435"));
         Assert.assertFalse(sut.validate(".32.3"));
+        Assert.assertFalse(sut.validate("32.3"));
         Assert.assertFalse(sut.validate("a32.3"));
         Assert.assertFalse(sut.validate("32.3a"));
     }
 
     @Test
-    public void testNumberTextValidatorWithNegative() {
+    public void testNumberTextValidatorMinValue() {
 
         /* Given */
-        NumberTextValidator sut = new NumberTextValidator("ErrorText", true);
+        NumberTextValidator sut = new NumberTextValidator("ErrorText", -100, Integer.MAX_VALUE);
 
         /* When & Then */
         Assert.assertTrue(sut.validate("213"));
+        Assert.assertTrue(sut.validate("100"));
+        Assert.assertTrue(sut.validate("-100"));
+        Assert.assertFalse(sut.validate("-101"));
+    }
+
+    @Test
+    public void testNumberTextValidatorMaxValue() {
+
+        /* Given */
+        NumberTextValidator sut = new NumberTextValidator("ErrorText", Integer.MIN_VALUE, 100);
+
+        /* When & Then */
         Assert.assertTrue(sut.validate("-213"));
-
-        Assert.assertFalse(sut.validate("133.323"));
-        Assert.assertFalse(sut.validate("3.23"));
-        Assert.assertFalse(sut.validate("1423."));
-        Assert.assertFalse(sut.validate(".543"));
-
-        Assert.assertFalse(sut.validate("-133.323"));
-        Assert.assertFalse(sut.validate("-3.23"));
-        Assert.assertFalse(sut.validate("-1423."));
-        Assert.assertFalse(sut.validate("-.543"));
-
-        Assert.assertFalse(sut.validate("32.5435"));
-        Assert.assertFalse(sut.validate(".32.3"));
-        Assert.assertFalse(sut.validate("a32.3"));
-        Assert.assertFalse(sut.validate("32.3a"));
-        Assert.assertFalse(sut.validate("323a"));
-    }
-
-    @Test
-    public void testNumberTextValidatorWithoutNegative() {
-
-        /* Given */
-        NumberTextValidator sut = new NumberTextValidator("ErrorText", false);
-
-        /* When & Then */
-        Assert.assertTrue(sut.validate("213"));
-        Assert.assertFalse(sut.validate("-213"));
-
-        Assert.assertFalse(sut.validate("133.323"));
-        Assert.assertFalse(sut.validate("3.23"));
-        Assert.assertFalse(sut.validate("1423."));
-        Assert.assertFalse(sut.validate(".543"));
-
-        Assert.assertFalse(sut.validate("-133.323"));
-        Assert.assertFalse(sut.validate("-3.23"));
-        Assert.assertFalse(sut.validate("-1423."));
-        Assert.assertFalse(sut.validate("-.543"));
-
-        Assert.assertFalse(sut.validate("32.5435"));
-        Assert.assertFalse(sut.validate(".32.3"));
-        Assert.assertFalse(sut.validate("a32.3"));
-        Assert.assertFalse(sut.validate("32.3a"));
-        Assert.assertFalse(sut.validate("323a"));
+        Assert.assertTrue(sut.validate("-100"));
+        Assert.assertTrue(sut.validate("100"));
+        Assert.assertFalse(sut.validate("101"));
     }
 }
