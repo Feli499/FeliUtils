@@ -110,9 +110,18 @@ public class TextInputInventory {
             return;
 
         String renameText = getRenameText();
-        javaPlugin.getServer().getScheduler().scheduleSyncDelayedTask(javaPlugin, () -> textInputResult.textResult(renameText), 1L);
+        closeInventory();
 
+        javaPlugin.getServer().getScheduler().scheduleSyncDelayedTask(javaPlugin, () -> textInputResult.textResult(renameText), 1L);
+    }
+
+    private void closeInventory() {
+        clearInventory();
         anvilInventory.close();
+    }
+
+    public void clearInventory() {
+        anvilInventory.clear();
     }
 
     public void addTextValidator(TextValidator textValidator) {

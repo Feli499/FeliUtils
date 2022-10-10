@@ -35,6 +35,8 @@ public class TextInputListener implements Listener {
         if (textInputInventory == null)
             return;
 
+        textInputInventory.clearInventory();
+
         HumanEntity player = e.getPlayer();
 
         if (e.getViewers().isEmpty())
