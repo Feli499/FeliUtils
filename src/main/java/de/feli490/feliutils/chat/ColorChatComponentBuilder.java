@@ -15,9 +15,9 @@ public class ColorChatComponentBuilder {
     private final TextColor secondaryColor;
     private final TextColor errorColor;
 
-    private final TextComponent textComponent;
+    private TextComponent textComponent;
 
-    public final TextComponent tagComponent;
+    public TextComponent tagComponent;
 
     public boolean showTag;
 
@@ -32,7 +32,7 @@ public class ColorChatComponentBuilder {
         this.showTag = pluginTag != null;
         this.tagComponent = Component.text(this.showTag ? "[" + pluginTag + "] " : "");
         if (tagColor != null) {
-            this.tagComponent.color(tagColor);
+            this.tagComponent = this.tagComponent.color(tagColor);
         }
     }
 
@@ -186,19 +186,19 @@ public class ColorChatComponentBuilder {
     public ColorChatComponentBuilder color(TextColor textColor, Component component, HoverEvent<?> hoverEvent, ClickEvent clickEvent,
             TextDecoration... decorations) {
         if (textColor != null) {
-            component.color(textColor);
+            component = component.color(textColor);
         }
         if (hoverEvent != null) {
-            component.hoverEvent(hoverEvent);
+            component = component.hoverEvent(hoverEvent);
         }
         if (clickEvent != null) {
-            component.clickEvent(clickEvent);
+            component = component.clickEvent(clickEvent);
         }
         for (TextDecoration decoration : decorations) {
-            component.decorate(decoration);
+            component = component.decorate(decoration);
         }
 
-        this.textComponent.append(component);
+        this.textComponent = this.textComponent.append(component);
         return this;
     }
 
@@ -230,7 +230,7 @@ public class ColorChatComponentBuilder {
 
         Component component = Component.text("");
         if (this.showTag) {
-            component.append(this.tagComponent);
+            component = component.append(this.tagComponent);
         }
 
         return component.append(this.textComponent);

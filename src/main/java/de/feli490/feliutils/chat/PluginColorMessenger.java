@@ -20,6 +20,14 @@ public class PluginColorMessenger {
         this.tagColor = tagColor;
     }
 
+    public PluginColorMessenger(TextColor primaryColor, TextColor secondaryColor, TextColor errorColor, String pluginTag) {
+        this(primaryColor, secondaryColor, errorColor, pluginTag, null);
+    }
+
+    public PluginColorMessenger(TextColor primaryColor, TextColor secondaryColor, TextColor errorColor) {
+        this(primaryColor, secondaryColor, errorColor, null);
+    }
+
     public ColorChatComponentBuilder createBuilder() {
         return new ColorChatComponentBuilder(this.primaryColor, this.secondaryColor, this.errorColor, this.pluginTag, this.tagColor);
     }
