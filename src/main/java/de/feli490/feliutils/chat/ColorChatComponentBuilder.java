@@ -206,7 +206,7 @@ public class ColorChatComponentBuilder {
         return this.tag(!this.showTag);
     }
 
-    private ColorChatComponentBuilder tag(boolean showTag) {
+    public ColorChatComponentBuilder tag(boolean showTag) {
         this.showTag = showTag;
         return this;
     }
