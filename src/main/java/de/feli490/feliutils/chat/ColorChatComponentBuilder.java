@@ -17,9 +17,9 @@ public class ColorChatComponentBuilder {
 
     private TextComponent textComponent;
 
-    public TextComponent tagComponent;
+    private TextComponent tagComponent;
 
-    public boolean showTag;
+    private boolean showTag;
 
     public ColorChatComponentBuilder(TextColor primaryColor, TextColor secondaryColor, TextColor errorColor, String pluginTag,
             TextColor tagColor) {
