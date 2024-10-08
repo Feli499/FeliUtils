@@ -10,7 +10,7 @@ public class MultipleEntityUtilsTest {
     public void testRotationYaw() {
 
         /* Given */
-        Vector vector = new Vector(1, 0, 1).normalize();
+        Vector vector = new Vector(1, 0, 1);
 
         /* When */
         Vector result45 = MultipleEntityUtils.rotateVector(vector, 45);
@@ -23,13 +23,23 @@ public class MultipleEntityUtilsTest {
         Vector result360 = MultipleEntityUtils.rotateVector(vector, 360);
 
         /* Then */
-        Assert.assertEquals(new Vector(0, 0, 1).normalize(), result45);
-        Assert.assertEquals(new Vector(-1, 0, 1).normalize(), result90);
-        Assert.assertEquals(new Vector(-1, 0, 0).normalize(), result135);
-        Assert.assertEquals(new Vector(-1, 0, -1).normalize(), result180);
-        Assert.assertEquals(new Vector(0, 0, -1).normalize(), result225);
-        Assert.assertEquals(new Vector(1, 0, -1).normalize(), result270);
-        Assert.assertEquals(new Vector(1, 0, 0).normalize(), result315);
-        Assert.assertEquals(new Vector(1, 0, 1).normalize(), result360);
+        Assert.assertEquals(new Vector(0, 0, 1).clone().normalize(), result45.clone().normalize());
+        Assert.assertEquals(new Vector(-1, 0, 1).clone().normalize(), result90.clone().normalize());
+        Assert.assertEquals(new Vector(-1, 0, 0).clone().normalize(), result135.clone().normalize());
+        Assert.assertEquals(new Vector(-1, 0, -1).clone().normalize(), result180.clone().normalize());
+        Assert.assertEquals(new Vector(0, 0, -1).clone().normalize(), result225.clone().normalize());
+        Assert.assertEquals(new Vector(1, 0, -1).clone().normalize(), result270.clone().normalize());
+        Assert.assertEquals(new Vector(1, 0, 0).clone().normalize(), result315.clone().normalize());
+        Assert.assertEquals(new Vector(1, 0, 1).clone().normalize(), result360.clone().normalize());
+
+        double length = vector.length();
+        Assert.assertEquals(length, result45.length(), 0.05);
+        Assert.assertEquals(length, result90.length(), 0.05);
+        Assert.assertEquals(length, result135.length(), 0.05);
+        Assert.assertEquals(length, result180.length(), 0.05);
+        Assert.assertEquals(length, result225.length(), 0.05);
+        Assert.assertEquals(length, result270.length(), 0.05);
+        Assert.assertEquals(length, result315.length(), 0.05);
+        Assert.assertEquals(length, result360.length(), 0.05);
     }
 }
