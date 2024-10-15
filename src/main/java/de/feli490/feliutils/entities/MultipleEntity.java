@@ -19,13 +19,16 @@ public class MultipleEntity {
     }
 
     public MultipleEntity(Location location, float yaw) {
-        this.location = location;
+        this.location = location.clone();
+        this.location.setYaw(yaw);
+        this.location.setPitch(0F);
         this.yaw = yaw;
     }
 
     public MultipleEntityUnit addEntity(Vector vector, Entity entity) {
         MultipleEntityUnit multipleEntityUnit = new MultipleEntityUnit(vector, entity);
         this.entityMap.put(multipleEntityUnit, entity.getUniqueId());
+        this.updateEntity(multipleEntityUnit);
         return multipleEntityUnit;
     }
 
@@ -62,7 +65,11 @@ public class MultipleEntity {
     }
 
     private void updateEntities() {
-        this.entityMap.forEach((multipleEntityUnit, uuid) -> multipleEntityUnit.positionEntity(this.location, this.yaw));
+        this.entityMap.forEach((multipleEntityUnit, uuid) -> this.updateEntity(multipleEntityUnit));
+    }
+
+    private void updateEntity(MultipleEntityUnit multipleEntityUnit) {
+        multipleEntityUnit.positionEntity(this.location, this.yaw);
     }
 
     public void removeEntities() {
