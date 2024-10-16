@@ -59,7 +59,7 @@ public class MultipleEntity {
     }
 
     public void setTransition(Location location, float yaw) {
-        this.location = location.setDirection(new Vector());
+        this.location = location.clone();
         this.yaw = yaw;
         this.updateEntities();
     }
