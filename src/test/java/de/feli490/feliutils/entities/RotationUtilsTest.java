@@ -4,7 +4,7 @@ import org.bukkit.util.Vector;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class MultipleEntityUtilsTest {
+public class RotationUtilsTest {
 
     @Test
     public void testRotationYaw() {
@@ -13,14 +13,14 @@ public class MultipleEntityUtilsTest {
         Vector vector = new Vector(1, 0, 1);
 
         /* When */
-        Vector result45 = MultipleEntityUtils.rotateVector(vector, 45);
-        Vector result90 = MultipleEntityUtils.rotateVector(vector, 90);
-        Vector result135 = MultipleEntityUtils.rotateVector(vector, 135);
-        Vector result180 = MultipleEntityUtils.rotateVector(vector, 180);
-        Vector result225 = MultipleEntityUtils.rotateVector(vector, 225);
-        Vector result270 = MultipleEntityUtils.rotateVector(vector, 270);
-        Vector result315 = MultipleEntityUtils.rotateVector(vector, 315);
-        Vector result360 = MultipleEntityUtils.rotateVector(vector, 360);
+        Vector result45 = RotationUtils.rotateVector(vector, 45);
+        Vector result90 = RotationUtils.rotateVector(vector, 90);
+        Vector result135 = RotationUtils.rotateVector(vector, 135);
+        Vector result180 = RotationUtils.rotateVector(vector, 180);
+        Vector result225 = RotationUtils.rotateVector(vector, 225);
+        Vector result270 = RotationUtils.rotateVector(vector, 270);
+        Vector result315 = RotationUtils.rotateVector(vector, 315);
+        Vector result360 = RotationUtils.rotateVector(vector, 360);
 
         /* Then */
         Assert.assertEquals(new Vector(0, 0, 1).clone().normalize(), result45.clone().normalize());

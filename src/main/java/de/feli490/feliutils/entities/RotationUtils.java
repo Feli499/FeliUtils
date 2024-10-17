@@ -2,7 +2,7 @@ package de.feli490.feliutils.entities;
 
 import org.bukkit.util.Vector;
 
-public class MultipleEntityUtils {
+public class RotationUtils {
 
     public static Vector rotateVector(Vector vector, float yaw) {
         float cosYaw = (float) Math.cos(Math.toRadians(yaw));

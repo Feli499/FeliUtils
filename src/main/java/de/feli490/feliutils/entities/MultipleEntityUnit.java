@@ -37,7 +37,7 @@ public class MultipleEntityUnit {
     }
 
     public void positionEntity(Location location, float yaw) {
-        Vector vector = MultipleEntityUtils.rotateVector(this.position, yaw);
+        Vector vector = RotationUtils.rotateVector(this.position, yaw);
         Location add = location.clone().add(vector);
         add.setPitch(this.basePitch);
         this.entity.teleport(add);
