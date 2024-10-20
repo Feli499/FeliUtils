@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
@@ -93,22 +94,36 @@ public class BDModelLoader {
         return components;
     }
 
-    public static BDModel loadFromFile(File file) throws IOException {
+    public static BDModel loadFromReader(Reader tmpReader, String modelName) throws IOException {
         StringBuilder content = new StringBuilder();
-        try (Reader fReader = new FileReader(file)) {
-            try (BufferedReader reader = new BufferedReader(fReader)) {
+        try (BufferedReader reader = new BufferedReader(tmpReader)) {
                 String line;
                 while ((line = reader.readLine()) != null) {
                     content.append(line);
                 }
             }
-        }
+
         List<BDComponent> components = loadFromGZIP(content.toString());
-        String modelName = file.getName();
         if (components.size() == 1) {
             modelName = components.get(0).name();
         }
         return new BDModel(modelName, components);
+    }
+
+    public static BDModel loadFromFile(File file) throws IOException {
+        try (Reader fReader = new FileReader(file)) {
+            return loadFromReader(fReader, file.getName());
+        }
+    }
+
+    public static BDModel loadFromInputStream(InputStream inputStream) throws IOException {
+        return loadFromInputStream(inputStream, "");
+    }
+
+    public static BDModel loadFromInputStream(InputStream inputStream, String modelName) throws IOException {
+        try (Reader streamReader = new InputStreamReader(inputStream)) {
+            return loadFromReader(streamReader, modelName);
+        }
     }
 
     private static BDComponent loadComponent(Map<String, Object> item) {
