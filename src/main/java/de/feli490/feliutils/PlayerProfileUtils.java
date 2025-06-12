@@ -1,15 +1,11 @@
 package de.feli490.feliutils;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Set;
-
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
 import com.destroystokyo.paper.profile.PlayerProfile;
 import com.destroystokyo.paper.profile.ProfileProperty;
-
 import de.iani.playerUUIDCache.CachedPlayerProfile;
+import java.nio.charset.StandardCharsets;
+import java.util.Set;
+import org.json.JSONObject;
 
 public class PlayerProfileUtils {
     private PlayerProfileUtils() {
@@ -46,7 +42,7 @@ public class PlayerProfileUtils {
             decodedValue = decodedValue.replace("{textures:{SKIN:{url:", "{\"textures\":{\"SKIN\":{\"url\":");
         }
 
-        JSONObject json = (JSONObject) new JSONParser().parse(decodedValue);
+        JSONObject json = new JSONObject(decodedValue);
         JSONObject jsonTextures = (JSONObject) json.get("textures");
         JSONObject jsonSkin = (JSONObject) jsonTextures.get("SKIN");
         return (String) jsonSkin.get("url");

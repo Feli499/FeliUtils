@@ -7,14 +7,13 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <build.number>DEV</build.number>
-        <JSONVersion>20200518</JSONVersion>
         <project.scm.id>github-scm-credentials</project.scm.id>
     </properties>
 
     <repositories>
         <repository>
             <id>papermc</id>
-            <url>https://papermc.io/repo/repository/maven-public/</url>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
         <repository>
             <id>brokkonaut</id>
@@ -35,7 +34,7 @@
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
-            <version>${JSONVersion}</version>
+            <version>20240303</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
