@@ -35,15 +35,15 @@
 
     <dependencies>
         <dependency>
+            <groupId>de.feli490.utils.core</groupId>
+            <artifactId>FeliUtils-Core</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20240303</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>de.feli490.utils.core</groupId>
-            <artifactId>FeliUtils-Core</artifactId>
-            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>de.iani.cubeside</groupId>
@@ -87,12 +87,12 @@
                         <configuration>
                             <artifactSet>
                                 <includes>
-                                    <include>de.feli490.utils.core:FeliUtilsCore</include>
+                                    <include>de.feli490.utils.core:FeliUtils-Core</include>
                                 </includes>
                             </artifactSet>
                             <filters>
                                 <filter>
-                                    <artifact>de.feli490.utils.core:FeliUtilsCore</artifact>
+                                    <artifact>de.feli490.utils.core:FeliUtils-Core</artifact>
                                     <includes>
                                         <include>de/feli490/utils/core/**</include>
                                     </includes>
