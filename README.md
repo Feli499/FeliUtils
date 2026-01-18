@@ -8,15 +8,15 @@ This Minecraft Plugin is mainly used by my own Plugins to supply some Utility Me
 Releases
 ====
 
-Last Stable Release: [Click here](https://jenkins.ehemanns.de/job/FeliUtils/lastRelease/)
+Last Stable Release: [Click here](https://jenkins.ehemanns.de/job/FeliUtils-Spigot/lastRelease/)
 
-Last Development Version: [Click here](https://jenkins.ehemanns.de/job/FeliUtils/lastStableBuild)
+Last Development Version: [Click here](https://jenkins.ehemanns.de/job/FeliUtils-Spigot/lastStableBuild)
 
-All versions are build on our Jenkins Server: [here](https://jenkins.ehemanns.de/job/FeliUtils/)
+All versions are build on our Jenkins Server: [here](https://jenkins.ehemanns.de/job/FeliUtils-Spigot/)
 
 </br>
 
-Use FeliUtils in your own Plugin
+Use FeliUtils-Spigot in your own Plugin
 ====
 
 For maven Users you can just add our repository.
@@ -29,8 +29,8 @@ For maven Users you can just add our repository.
 Then you can just add the plugin as your dependency:
 
         <dependency>
-            <groupId>de.feli490.plugins</groupId>
-            <artifactId>FeliUtils</artifactId>
+            <groupId>de.feli490.utils.minecraft.spigot</groupId>
+            <artifactId>FeliUtils-Spigot</artifactId>
             <version>CHOOSEN-VERSION</version>
             <scope>provided</scope>
         </dependency>
