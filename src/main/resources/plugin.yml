@@ -1,0 +1,10 @@
+name: ${project.artifactId}
+version: ${project.version}
+api-version: 1.18
+description: Utility Plugin for Plugins of Feli490
+website: feli490.de
+author: Feli
+main: de.feli490.utils.spigot.FeliUtilsPlugin
+softdepend: [ PlayerUUIDCache ]
+libraries:
+  - org.json:json:${JSONVersion}
