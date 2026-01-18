@@ -3,6 +3,11 @@
     <groupId>de.feli490.plugins</groupId>
     <artifactId>FeliUtils</artifactId>
     <version>1.6.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>FeliUtilsSpigot</module>
+        <module>FeliUtilsCore</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -11,10 +16,6 @@
     </properties>
 
     <repositories>
-        <repository>
-            <id>papermc</id>
-            <url>https://repo.papermc.io/repository/maven-public/</url>
-        </repository>
         <repository>
             <id>brokkonaut</id>
             <url>https://www.iani.de/nexus/content/groups/public</url>
@@ -26,21 +27,10 @@
     </repositories>
     <dependencies>
         <dependency>
-            <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
-            <version>1.21.5-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20240303</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>de.iani.cubeside</groupId>
-            <artifactId>PlayerUUIDCache</artifactId>
-            <version>2.0.0-SNAPSHOT</version>
         </dependency>
 
         <!-- Test dependencies -->
