@@ -1,12 +1,10 @@
 package de.feli490.feliutils;
 
-import java.util.logging.Level;
-
-import org.bukkit.plugin.PluginDescriptionFile;
-import org.bukkit.plugin.java.JavaPlugin;
-
 import de.feli490.feliutils.inventory.ActionInventoryEventListener;
 import de.feli490.feliutils.inventory.textinput.TextInputListener;
+import java.util.logging.Level;
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class FeliUtilsPlugin extends JavaPlugin {
 
