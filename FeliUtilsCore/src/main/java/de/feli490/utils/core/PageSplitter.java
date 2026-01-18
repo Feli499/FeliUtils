@@ -55,5 +55,4 @@ public class PageSplitter<T> {
     public List<T> getPageContent(int page) {
         return getPages().get(page);
     }
-
 }
