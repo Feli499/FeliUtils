@@ -7,6 +7,7 @@
     <modules>
         <module>FeliUtilsSpigot</module>
         <module>FeliUtilsCore</module>
+        <module>FeliUtilsHytale</module>
     </modules>
 
     <properties>
